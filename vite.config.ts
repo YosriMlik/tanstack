@@ -11,7 +11,7 @@ export default defineConfig({
     }), 
     react()
   ],
-  build: {
-    target: 'cloudflare-pages',
-  }
+  // build: {
+  //   target: 'cloudflare-pages',
+  // }
 })
