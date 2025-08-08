@@ -7,8 +7,8 @@ export const Route = createFileRoute('/about')({
 function RouteComponent() {
   return (
     <>
-      <div>Hello "/about"!</div>
-      <Link to="/">Go home</Link>
+        <div>Hello "/about"!</div>
+        <Link to="/">Go home</Link>
     </>
   )
 }

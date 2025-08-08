@@ -1,8 +1,7 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import logo from '../logo.svg'
-import '../App.css'
 import React, { useEffect, useState } from 'react'
-
+import '../App.css'
 export const Route = createFileRoute('/')({
   component: App,
 })
@@ -59,10 +58,8 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h4 style={{ marginBottom: 10, marginTop: 10 }} >Posts | <Link to="/about">About</Link></h4>
+    <div>
+
 
         
         <form onSubmit={handleSubmit} style={{ marginBottom: 0 }}>
@@ -84,31 +81,31 @@ function App() {
         </form>
         
         {loading && (
-  <div style={{
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 40,
-    margin: '16px 0'
-  }}>
-    <div style={{
-      width: 32,
-      height: 32,
-      border: '4px solid #61dafb',
-      borderTop: '4px solid #222',
-      borderRadius: '50%',
-      animation: 'spin 1s linear infinite'
-    }} />
-    <style>
-      {`
-        @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-      `}
-    </style>
-  </div>
-)}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: 40,
+            margin: '16px 0'
+          }}>
+            <div style={{
+              width: 32,
+              height: 32,
+              border: '4px solid #61dafb',
+              borderTop: '4px solid #222',
+              borderRadius: '50%',
+              animation: 'spin 1s linear infinite'
+            }} />
+            <style>
+              {`
+                @keyframes spin {
+                  0% { transform: rotate(0deg); }
+                  100% { transform: rotate(360deg); }
+                }
+              `}
+            </style>
+          </div>
+        )}
         {error && <p style={{ color: 'red' }}>{error}</p>}
         {!loading && !error && (
           <ul style={{ listStyle: 'none', padding: 0, marginBottom: 0 }}>
@@ -136,7 +133,6 @@ function App() {
               ))}
           </ul>
         )}
-      </header>
     </div>
   )
 }

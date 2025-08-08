@@ -1,9 +1,18 @@
 .App {
   text-align: left;
 }
+a{
+  color: #61dafb;
+  text-decoration: none;
+}
+
+a.active {
+  text-decoration: underline;
+}
 
 .App-logo {
   height: 25vmin;
+  width: 45vmin;
   pointer-events: none;
   padding-top: 0;
 }
@@ -14,7 +23,7 @@
   }
 }
 
-.App-header {
+.App-main {
   background-color: #282c34;
   padding: 0 2rem;
   
