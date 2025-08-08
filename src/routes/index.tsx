@@ -83,7 +83,32 @@ function App() {
           <button type="submit" disabled={loading}>Add Post</button>
         </form>
         
-        {loading && <p>Loading...</p>}
+        {loading && (
+  <div style={{
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 40,
+    margin: '16px 0'
+  }}>
+    <div style={{
+      width: 32,
+      height: 32,
+      border: '4px solid #61dafb',
+      borderTop: '4px solid #222',
+      borderRadius: '50%',
+      animation: 'spin 1s linear infinite'
+    }} />
+    <style>
+      {`
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      `}
+    </style>
+  </div>
+)}
         {error && <p style={{ color: 'red' }}>{error}</p>}
         {!loading && !error && (
           <ul style={{ listStyle: 'none', padding: 0, marginBottom: 0 }}>

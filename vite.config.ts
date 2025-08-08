@@ -11,11 +11,6 @@ export default defineConfig({
     }), 
     react()
   ],
-  resolve: {
-    alias: import.meta.env.PROD
-      ? { 'react-dom/server': 'react-dom/server.edge' }
-      : {}, // Empty object for dev mode
-  },
 
   // build: {
   //   target: 'cloudflare-pages',
