@@ -1,5 +1,4 @@
-import { createFileRoute, Link } from '@tanstack/react-router'
-import logo from '../logo.svg'
+import { createFileRoute } from '@tanstack/react-router'
 import React, { useEffect, useState } from 'react'
 import '../App.css'
 export const Route = createFileRoute('/')({
