@@ -3,13 +3,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --port 3000",
+    "dev": "vite --port 3000 --host",
     "start": "vite --port 3000",
     "build": "vite build && tsc",
     "serve": "vite preview",
     "test": "vitest run"
   },
   "dependencies": {
+    "@capacitor/core": "^7.4.3",
     "@tanstack/react-router": "^1.130.2",
     "@tanstack/react-router-devtools": "^1.130.2",
     "@tanstack/router-plugin": "^1.121.2",

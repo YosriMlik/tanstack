@@ -57,10 +57,7 @@ function App() {
   }
 
   return (
-    <div>
-
-
-        
+    <div>        
         <form onSubmit={handleSubmit} style={{ marginBottom: 0 }}>
           <input
             type="text"

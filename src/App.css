@@ -14,7 +14,8 @@ a.active {
   height: 25vmin;
   width: 45vmin;
   pointer-events: none;
-  padding-top: 0;
+  padding-top: 20px;
+  margin-top: 20px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
