@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import React, { useEffect, useState } from "react";
 import "../App.css";
 export const Route = createFileRoute("/")({
