@@ -66,7 +66,7 @@ function App() {
           <div className="content-wrapper">
             <header className="app-header">
               <h1 className="app-title">My Blog</h1>
-              <p className="app-subtitle">Share your thoughts with the world</p>
+              <p className="app-subtitle">Share your thoughts with the world !</p>
             </header>
             <div style={{  }}>
               <form onSubmit={handleSubmit} className="post-form">
