@@ -51,7 +51,7 @@ code {
   padding: 1rem 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  
 }
 
 .App-content {
@@ -62,7 +62,7 @@ code {
 .content-wrapper {
   width: 100%;
   max-width: 800px;
-  padding: 0 1rem;
+  padding-top: 0;
   margin: 0 auto;
 }
 
@@ -81,8 +81,9 @@ code {
   display: flex;
   gap: 1.5rem;
   justify-content: center;
-  margin: 1rem 0;
+  margin-top: 1rem;
   width: 100%;
+  border: none;
 }
 
 a {
@@ -103,23 +104,23 @@ a:hover {
 }
 
 a.active {
-  /* text-decoration: underline; */
-  font-weight: 600;
+  font-weight: 500;
   background-color: rgba(97, 218, 251, 0.15);
+  border: 1px solid rgba(97, 218, 251, 0.3);
+  color: #61dafb;
 }
 
 /* Header Styles */
 .app-header {
   text-align: center;
-  margin-bottom: 2rem;
-  padding: 1rem 0;
+  padding-bottom: 1rem;
   width: 100%;
 }
 
 .app-title {
   font-size: 2.5rem;
   font-weight: 700;
-  margin: 0 0 0.5rem 0;
+  margin: 0;
   background: linear-gradient(45deg, #61dafb, #21d4fd);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -242,7 +243,7 @@ a.active {
 
 /* Posts Container */
 .posts-container {
-  margin-top: 2rem;
+  margin: 2rem 0;
   width: 100%;
 }
 
@@ -382,7 +383,7 @@ a.active {
 /* Tablet Styles */
 @media (min-width: 601px) and (max-width: 1024px) {
   .content-wrapper {
-    padding: 1.5rem;
+    padding: 0 1.5rem;
     max-width: 90%;
   }
   
@@ -394,7 +395,7 @@ a.active {
 /* Desktop Enhancements */
 @media (min-width: 1025px) {
   .content-wrapper {
-    padding: 2rem;
+    padding: 0 2rem;
     max-width: 800px;
   }
   
@@ -430,8 +431,7 @@ a.active {
 
 /* Focus styles for better accessibility */
 .form-input:focus,
-.submit-btn:focus,
-a:focus {
+.submit-btn:focus {
   outline: 2px solid #61dafb;
   outline-offset: 2px;
 }

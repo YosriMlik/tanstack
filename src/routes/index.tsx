@@ -68,74 +68,75 @@ function App() {
               <h1 className="app-title">My Blog</h1>
               <p className="app-subtitle">Share your thoughts with the world</p>
             </header>
-
-            <form onSubmit={handleSubmit} className="post-form">
-              <div className="form-group">
-                <input
-                  type="text"
-                  placeholder="What's on your mind?"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                  required
-                  className="form-input title-input"
-                />
-              </div>
-              <div className="form-group">
-                <textarea
-                  placeholder="Share your story..."
-                  value={content}
-                  onChange={(e) => setContent(e.target.value)}
-                  required
-                  className="form-input content-input"
-                  rows={3}
-                />
-              </div>
-              <button type="submit" disabled={loading} className="submit-btn">
-                {loading ? "Posting..." : "Share Post"}
-              </button>
-            </form>
-
-            {loading && (
-              <div className="loading-container">
-                <div className="spinner" />
-              </div>
-            )}
-
-            {error && <div className="error-message">{error}</div>}
-
-            {!loading && !error && (
-              <div className="posts-container">
-                <h2 className="posts-title">Recent Posts</h2>
-                <div className="posts-grid">
-                  {[...posts]
-                    .sort(
-                      (a, b) =>
-                        new Date(b.timestamp).getTime() -
-                        new Date(a.timestamp).getTime()
-                    )
-                    .map((post) => (
-                      <article
-                        key={`${post.id}-${post.timestamp}`}
-                        className="post-card"
-                      >
-                        <h3 className="post-title">{post.title}</h3>
-                        <p className="post-content">{post.content}</p>
-                        <div className="post-meta">
-                          <time className="post-timestamp">
-                            {new Date(post.timestamp).toLocaleDateString("en-US", {
-                              year: "numeric",
-                              month: "short",
-                              day: "numeric",
-                              hour: "2-digit",
-                              minute: "2-digit",
-                            })}
-                          </time>
-                        </div>
-                      </article>
-                    ))}
+            <div style={{  }}>
+              <form onSubmit={handleSubmit} className="post-form">
+                <div className="form-group">
+                  <input
+                    type="text"
+                    placeholder="What's on your mind?"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    required
+                    className="form-input title-input"
+                  />
                 </div>
-              </div>
-            )}
+                <div className="form-group">
+                  <textarea
+                    placeholder="Share your story..."
+                    value={content}
+                    onChange={(e) => setContent(e.target.value)}
+                    required
+                    className="form-input content-input"
+                    rows={3}
+                  />
+                </div>
+                <button type="submit" disabled={loading} className="submit-btn">
+                  {loading ? "Posting..." : "Share Post"}
+                </button>
+              </form>
+
+              {loading && (
+                <div className="loading-container">
+                  <div className="spinner" />
+                </div>
+              )}
+
+              {error && <div className="error-message">{error}</div>}
+
+              {!loading && !error && (
+                <div className="posts-container">
+                  {/* <h2 className="posts-title">Recent Posts</h2> */}
+                  <div className="posts-grid">
+                    {[...posts]
+                      .sort(
+                        (a, b) =>
+                          new Date(b.timestamp).getTime() -
+                          new Date(a.timestamp).getTime()
+                      )
+                      .map((post) => (
+                        <article
+                          key={`${post.id}-${post.timestamp}`}
+                          className="post-card"
+                        >
+                          <h3 className="post-title">{post.title}</h3>
+                          <p className="post-content">{post.content}</p>
+                          <div className="post-meta">
+                            <time className="post-timestamp">
+                              {new Date(post.timestamp).toLocaleDateString("en-US", {
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                                hour: "2-digit",
+                                minute: "2-digit",
+                              })}
+                            </time>
+                          </div>
+                        </article>
+                      ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
