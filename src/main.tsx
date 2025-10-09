@@ -1,14 +1,26 @@
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
-import NextTopLoader from 'nextjs-toploader';
-
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 
 // Import the generated route tree
 import { routeTree } from './routeTree.gen.ts'
 
 import './styles.css'
 import reportWebVitals from './reportWebVitals.ts'
+
+// Configure NProgress
+NProgress.configure({
+  showSpinner: false,
+  minimum: 0.08,
+  easing: 'ease',
+  speed: 200,
+  trickle: true,
+  trickleSpeed: 100,
+  parent: 'body',
+  template: '<div class="bar" role="bar"></div>',
+})
 
 // Create a new router instance
 const router = createRouter({
@@ -18,6 +30,29 @@ const router = createRouter({
   scrollRestoration: true,
   defaultStructuralSharing: true,
   defaultPreloadStaleTime: 0,
+})
+
+
+// More granular event handling
+router.subscribe('onBeforeLoad', ({ pathChanged }) => {
+  if (pathChanged) {
+    NProgress.start()
+  }
+})
+
+router.subscribe('onLoad', () => {
+  NProgress.set(0.7) // Set to 70% when content starts loading
+})
+
+router.subscribe('onResolved', () => {
+  NProgress.done()
+})
+
+// Handle initial load
+router.subscribe('onLoad', ({ toLocation }) => {
+  if (toLocation.href === window.location.href) {
+    NProgress.done()
+  }
 })
 
 // Register the router instance for type safety
@@ -33,10 +68,6 @@ if (rootElement && !rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement)
   root.render(
     <StrictMode>
-      <NextTopLoader
-        showSpinner={false}
-        height={2}
-       />
       <RouterProvider router={router} />
     </StrictMode>,
   )
