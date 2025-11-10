@@ -38,7 +38,7 @@ function App() {
     setError(null);
     try {
       const res = await fetch(
-        "https://workers-bun-hono-drizzle.ymlik24.workers.dev/posts",
+        "https://workers-bun-hono-drizzle.ymlik24.workers.dev/api/posts",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
