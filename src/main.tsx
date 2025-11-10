@@ -41,7 +41,7 @@ router.subscribe('onBeforeLoad', ({ pathChanged }) => {
 })
 
 router.subscribe('onLoad', () => {
-  NProgress.set(0.7) // Set to 70% when content starts loading
+  NProgress.set(0.3) // Set to 30% when content starts loading
 })
 
 router.subscribe('onResolved', () => {

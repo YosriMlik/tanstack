@@ -21,7 +21,7 @@ function App() {
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://workers-bun-hono-drizzle.ymlik24.workers.dev")
+    fetch("https://workers-bun-hono-drizzle.ymlik24.workers.dev/api/posts")
       .then((res) => res.json())
       .then((data) => {
         // If data is an object with numeric keys, convert to array
