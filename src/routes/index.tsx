@@ -18,6 +18,7 @@ function App() {
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -52,48 +53,82 @@ function App() {
       console.log(posts);
       setTitle("");
       setContent("");
+      setIsModalOpen(false);
     } catch (err) {
       setError("Failed to add post");
     } finally {
       setLoading(false);
     }
   };
-
   return (
     <div className="app-container">
       <div className="App-main">       
         <div className="App-content">
           <div className="content-wrapper">
-            <header className="app-header">
+            {/* <header className="app-header">
               <h1 className="app-title">My Blog</h1>
               <p className="app-subtitle">Share your thoughts with the world !</p>
-            </header>
-            <div style={{  }}>
-              <form onSubmit={handleSubmit} className="post-form">
-                <div className="form-group">
-                  <input
-                    type="text"
-                    placeholder="What's on your mind?"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    required
-                    className="form-input title-input"
-                  />
+            </header> */}
+            <div className="header-with-button">
+              <button 
+                onClick={() => setIsModalOpen(true)} 
+                className="add-post-btn"
+              >
+                + Create Post
+              </button>
+            </div>
+
+            {/* Modal */}
+            {isModalOpen && (
+              <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
+                <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                  <div className="modal-header">
+                    <h2>Create New Post</h2>
+                    <button 
+                      className="modal-close"
+                      onClick={() => setIsModalOpen(false)}
+                      type="button"
+                    >
+                      ✕
+                    </button>
+                  </div>
+                  <form onSubmit={handleSubmit} className="post-form">
+                    <div className="form-group">
+                      <input
+                        type="text"
+                        placeholder="What's on your mind?"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        required
+                        className="form-input title-input"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <textarea
+                        placeholder="Share your story..."
+                        value={content}
+                        onChange={(e) => setContent(e.target.value)}
+                        required
+                        className="form-input content-input"
+                        rows={4}
+                      />
+                    </div>
+                    <div className="modal-actions">
+                      <button 
+                        type="button" 
+                        className="cancel-btn"
+                        onClick={() => setIsModalOpen(false)}
+                      >
+                        Cancel
+                      </button>
+                      <button type="submit" disabled={loading} className="submit-btn">
+                        {loading ? "Posting..." : "Share Post"}
+                      </button>
+                    </div>
+                  </form>
                 </div>
-                <div className="form-group">
-                  <textarea
-                    placeholder="Share your story..."
-                    value={content}
-                    onChange={(e) => setContent(e.target.value)}
-                    required
-                    className="form-input content-input"
-                    rows={3}
-                  />
-                </div>
-                <button type="submit" disabled={loading} className="submit-btn">
-                  {loading ? "Posting..." : "Share Post"}
-                </button>
-              </form>
+              </div>
+            )}
 
               {loading && (
                 <div className="loading-container">
@@ -140,6 +175,5 @@ function App() {
           </div>
         </div>
       </div>
-    </div>
   );
 }
